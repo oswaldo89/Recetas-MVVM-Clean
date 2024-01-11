@@ -25,9 +25,9 @@ class CategoryListAdapter(private var items: List<Category>) : RecyclerView.Adap
                 binding.apply {
                     val recipeThumbAdapter = RecipeThumbAdapter(item.recipes)
 
-                    binding.categoryName.text = item.categoryName
-                    binding.rvRecipe.layoutManager = LinearLayoutManager(itemView.context, LinearLayoutManager.HORIZONTAL, false)
-                    binding.rvRecipe.adapter = recipeThumbAdapter
+                    categoryName.text = item.categoryName
+                    rvRecipe.layoutManager = LinearLayoutManager(itemView.context, LinearLayoutManager.HORIZONTAL, false)
+                    rvRecipe.adapter = recipeThumbAdapter
                 }
 
             }

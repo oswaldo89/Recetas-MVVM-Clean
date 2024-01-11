@@ -21,6 +21,7 @@ class RecipeThumbAdapter(private var items: List<Recipe>) : RecyclerView.Adapter
         with(holder) {
             with(items[position]) {
                 binding.thumbMovie.loadUrl(context = holder.itemView.context, url = this.imageUrl)
+                binding.title.text = this.title
             }
             this.itemView.setOnSafeClickListener {
                 //iMovieEvent.onClickMovie(items[position])
