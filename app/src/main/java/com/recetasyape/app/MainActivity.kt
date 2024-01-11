@@ -1,9 +1,7 @@
 package com.recetasyape.app
 
-import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import com.recetasyape.app.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
