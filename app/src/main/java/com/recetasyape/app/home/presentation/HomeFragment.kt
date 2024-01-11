@@ -1,4 +1,4 @@
-package com.recetasyape.app
+package com.recetasyape.app.home.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.recetasyape.app.home.presentation.adapters.RecipeListAdapter
 import com.recetasyape.app.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {

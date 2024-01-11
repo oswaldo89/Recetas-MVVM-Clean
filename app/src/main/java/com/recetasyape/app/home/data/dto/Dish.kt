@@ -1,4 +1,4 @@
-package com.recetasyape.app
+package com.recetasyape.app.home.data.dto
 
 
 import com.google.gson.annotations.SerializedName

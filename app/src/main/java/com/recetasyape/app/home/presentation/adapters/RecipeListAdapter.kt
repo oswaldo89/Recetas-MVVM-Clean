@@ -1,8 +1,9 @@
-package com.recetasyape.app
+package com.recetasyape.app.home.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.recetasyape.app.home.data.dto.Recipe
 import com.recetasyape.app.databinding.ItemRecipeBinding
 import com.recetasyape.app.utils.extension_functions.setOnSafeClickListener
 
