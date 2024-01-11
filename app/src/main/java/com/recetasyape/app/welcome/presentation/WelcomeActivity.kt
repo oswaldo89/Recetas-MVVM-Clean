@@ -1,4 +1,4 @@
-package com.recetasyape.app
+package com.recetasyape.app.welcome.presentation
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.recetasyape.app.MainActivity
 import com.recetasyape.app.databinding.ActivityWelcomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
