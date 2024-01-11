@@ -1,8 +1,7 @@
 # Android Clean Architecture (App de Recetas)  
 A continuación, describo cómo está estructurada la siguiente aplicación, explicando la arquitectura y tecnologías usadas para el desarrollo. Esta app muestra una lista de recetas con su detalle, al igual que muestra la ubicación en un mapa de donde es originario el platillo.
 
-# Features  
-¡Por supuesto! Aquí te muestro una descripción corta de cada tema:
+# Features
 
 <sub>**1. API SplashScreen**: Api recientemente propuesta por Google que permite a las aplicaciones de Android mostrar una pantalla de bienvenida personalizada al iniciar la aplicación.</sub>  
 <sub>**2. Common Dimens values**: Se utiliza un archivo con valores comunes, que todo el equipo de desarrollo deberia usar, para estandarizar los valores usados en los componentes.</sub>  
