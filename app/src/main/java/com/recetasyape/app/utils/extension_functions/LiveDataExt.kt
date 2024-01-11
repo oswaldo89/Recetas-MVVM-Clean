@@ -1,4 +1,4 @@
-package com.recetasyape.app.utils
+package com.recetasyape.app.utils.extension_functions
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

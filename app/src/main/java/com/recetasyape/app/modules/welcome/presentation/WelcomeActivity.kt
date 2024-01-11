@@ -1,4 +1,4 @@
-package com.recetasyape.app.welcome.presentation
+package com.recetasyape.app.modules.welcome.presentation
 
 import android.content.Intent
 import android.os.Bundle

@@ -1,13 +1,13 @@
-package com.recetasyape.app.home.presentation.adapters
+package com.recetasyape.app.modules.home.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.recetasyape.app.home.data.dto.Recipe
+import com.recetasyape.app.modules.home.data.dto.Category
 import com.recetasyape.app.databinding.ItemRecipeBinding
 import com.recetasyape.app.utils.extension_functions.setOnSafeClickListener
 
-class RecipeListAdapter(private var items: List<Recipe>) : RecyclerView.Adapter<RecipeListAdapter.ViewHolder>() {
+class CategoryListAdapter(private var items: List<Category>) : RecyclerView.Adapter<CategoryListAdapter.ViewHolder>() {
 
     inner class ViewHolder(val binding: ItemRecipeBinding) : RecyclerView.ViewHolder(binding.root)
 

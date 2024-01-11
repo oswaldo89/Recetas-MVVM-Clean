@@ -1,9 +1,9 @@
-package com.recetasyape.app.home.data.dto
+package com.recetasyape.app.modules.home.data.dto
 
 
 import com.google.gson.annotations.SerializedName
 
-data class Recipe(
+data class Category(
     @SerializedName("category_id") val categoryId: Int,
     @SerializedName("category_name") val categoryName: String,
     @SerializedName("dishes") val dishes: List<Dish>

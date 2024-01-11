@@ -4,7 +4,7 @@ package com.recetasyape.app
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.recetasyape.app.utils.OneTimeEvent
-import com.recetasyape.app.utils.asLiveData
+import com.recetasyape.app.utils.extension_functions.asLiveData
 
 @Suppress("MemberVisibilityCanBePrivate")
 abstract class BaseViewModel<STATE, NAVIGATION> : ViewModel() {
