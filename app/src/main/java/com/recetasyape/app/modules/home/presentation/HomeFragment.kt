@@ -36,7 +36,7 @@ class HomeFragment : Fragment() {
 
     private fun setupRecyclerView() {
         binding.apply {
-            rvRecetas.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            rvCategories.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         }
     }
 
@@ -54,7 +54,7 @@ class HomeFragment : Fragment() {
     private fun showData(categories: List<Category>) {
         binding.apply {
             recetasAdapter = CategoryListAdapter(categories)
-            rvRecetas.adapter = recetasAdapter
+            rvCategories.adapter = recetasAdapter
         }
     }
 

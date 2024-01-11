@@ -3,7 +3,7 @@ package com.recetasyape.app.modules.home.data.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class Dish(
+data class Recipe(
     @SerializedName("id") val id: Int,
     @SerializedName("title") val title: String,
     @SerializedName("description") val description: String,
@@ -13,6 +13,4 @@ data class Dish(
     @SerializedName("calories") val calories: Int,
     @SerializedName("image_url") val imageUrl: String,
     @SerializedName("location") val location: Location,
-
-
 )

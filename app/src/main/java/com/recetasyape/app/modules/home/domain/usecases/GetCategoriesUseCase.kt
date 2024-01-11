@@ -1,6 +1,6 @@
 package com.recetasyape.app.modules.home.domain.usecases
 
-import com.recetasyape.app.modules.home.data.dto.Dish
+import com.recetasyape.app.modules.home.data.dto.Recipe
 import com.recetasyape.app.modules.home.data.dto.Location
 import com.recetasyape.app.modules.home.data.dto.Category
 import javax.inject.Inject
@@ -12,7 +12,7 @@ class GetCategoriesUseCase @Inject constructor() {
                 1,
                 "Desayunos FIT",
                 listOf(
-                    Dish(
+                    Recipe(
                         1,
                         "Tortilla de claras con espinacas",
                         "Una opción deliciosa y baja en calorías para empezar el día. Prepara una tortilla de claras con espinacas y disfruta de un desayuno FIT.",
@@ -23,7 +23,7 @@ class GetCategoriesUseCase @Inject constructor() {
                         "https://contenido.quesosdeeuropa.com/uploads/quiche_b88618d2d8.jpg",
                         Location(19.4326, -99.1332)
                     ),
-                    Dish(
+                    Recipe(
                         2,
                         "Avena con frutas frescas",
                         "Una mezcla de avena cocida con trozos de frutas frescas. Este desayuno te proporcionará la energía necesaria para enfrentar el día.",
@@ -34,7 +34,7 @@ class GetCategoriesUseCase @Inject constructor() {
                         "https://contenido.quesosdeeuropa.com/uploads/quiche_b88618d2d8.jpg",
                         Location(20.6764, -88.5686)
                     ),
-                    Dish(
+                    Recipe(
                         3,
                         "Batido verde",
                         "Mezcla de espinacas, plátano, manzana y agua. Un batido refrescante y nutritivo para acompañar tus mañanas.",
@@ -51,7 +51,7 @@ class GetCategoriesUseCase @Inject constructor() {
                 2,
                 "Nuevas Recetas",
                 listOf(
-                    Dish(
+                    Recipe(
                         4,
                         "Ensalada de quinoa y aguacate",
                         "Una ensalada fresca con quinoa, aguacate, tomate y aderezo de limón. Una opción saludable y deliciosa para tus comidas.",
@@ -62,7 +62,7 @@ class GetCategoriesUseCase @Inject constructor() {
                         "https://contenido.quesosdeeuropa.com/uploads/quiche_b88618d2d8.jpg",
                         Location(19.0414, -98.2063)
                     ),
-                    Dish(
+                    Recipe(
                         5,
                         "Pechuga de pollo al horno con hierbas",
                         "Pechuga de pollo sazonada con hierbas frescas y horneada. Una receta fácil y baja en grasas para tus cenas.",
@@ -73,7 +73,7 @@ class GetCategoriesUseCase @Inject constructor() {
                         "https://contenido.quesosdeeuropa.com/uploads/quiche_b88618d2d8.jpg",
                         Location(20.9671, -89.6237)
                     ),
-                    Dish(
+                    Recipe(
                         6,
                         "Sopa de lentejas",
                         "Sopa reconfortante con lentejas, zanahorias y apio. Perfecta para días fríos y nutritiva para cualquier ocasión.",
