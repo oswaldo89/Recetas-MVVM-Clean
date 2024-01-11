@@ -4,7 +4,7 @@ A continuación, describo cómo está estructurada la siguiente aplicación, exp
 # Features  
 ¡Por supuesto! Aquí te muestro una descripción corta de cada tema:
 
-<sub>**1. API SplashScreen**: Api recientemente propuesta por Google que permite a las aplicaciones de Android mostrar una pantalla de bienvenida personalizada al iniciar la aplicación.</sub>
+<sub>**1. API SplashScreen**: Api recientemente propuesta por Google que permite a las aplicaciones de Android mostrar una pantalla de bienvenida personalizada al iniciar la aplicación.</sub> 
 <sub>**2. Common Dimens values**: Se utiliza un archivo con valores comunes, que todo el equipo de desarrollo deberia usar, para estandarizar los valores usados en los componentes.</sub>
 <sub>**3. Material Design**: Es un conjunto de directrices de diseño desarrolladas por Google para crear aplicaciones de Android con una apariencia moderna.</sub>
 <sub>**4. ViewBinding**: Facilita el enlace en el codigo con las vistas, esto previene errores ya que solo el binding, llamara los elementos de esa clase.</sub>
