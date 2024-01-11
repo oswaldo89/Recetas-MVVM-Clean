@@ -7,7 +7,9 @@ import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.recetasyape.app.databinding.ActivityWelcomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class WelcomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityWelcomeBinding
