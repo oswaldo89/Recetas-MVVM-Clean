@@ -9,11 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/normal_100"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:clickable="true"
         android:elevation="10dp"
-        android:focusable="true"
-        android:foreground="?android:attr/selectableItemBackgroundBorderless"
         app:cardCornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,8 +19,11 @@
             android:id="@+id/thumbMovie"
             android:layout_width="@dimen/movie_thumb_width"
             android:layout_height="@dimen/movie_thumb_height"
+            android:foreground="?android:attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
             android:background="#1e272e"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:focusable="true" />
     </androidx.cardview.widget.CardView>
 
     <TextView

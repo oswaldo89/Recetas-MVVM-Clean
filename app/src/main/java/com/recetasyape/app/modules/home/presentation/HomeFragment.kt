@@ -1,19 +1,26 @@
 package com.recetasyape.app.modules.home.presentation
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.recetasyape.app.modules.home.presentation.adapters.CategoryListAdapter
+import com.recetasyape.app.R
 import com.recetasyape.app.databinding.FragmentHomeBinding
+import com.recetasyape.app.modules.detail.presentation.DetailFragment
 import com.recetasyape.app.modules.home.data.dto.Category
+import com.recetasyape.app.modules.home.data.dto.Recipe
+import com.recetasyape.app.modules.home.presentation.adapters.CategoryListAdapter
+import com.recetasyape.app.modules.home.presentation.adapters.ICategoryEvent
+import com.recetasyape.app.utils.OneTimeEventObserver
+import com.recetasyape.app.utils.extension_functions.hideAndAddFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), ICategoryEvent {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -29,8 +36,6 @@ class HomeFragment : Fragment() {
         observeNavigation()
 
         viewModel.init()
-
-
         return binding.root
     }
 
@@ -49,13 +54,33 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun observeNavigation() {}
+    private fun observeNavigation() {
+        viewModel.navigationLiveData.observe(
+            viewLifecycleOwner,
+            OneTimeEventObserver {
+                when (it) {
+                    is HomeViewModel.Navigation.GoToDetail -> {
+                        requireActivity().supportFragmentManager.hideAndAddFragment(R.id.nav_host_fragment, DetailFragment())
+                    }
+                }
+            }
+        )
+    }
 
     private fun showData(categories: List<Category>) {
         binding.apply {
-            recetasAdapter = CategoryListAdapter(categories)
+            recetasAdapter = CategoryListAdapter(categories, this@HomeFragment)
             rvCategories.adapter = recetasAdapter
         }
+    }
+
+    override fun onRecipeClicked(recipe: Recipe) {
+        viewModel.onRecipeClicked(recipe)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.v("oswaldo", "destroyed")
     }
 
 }

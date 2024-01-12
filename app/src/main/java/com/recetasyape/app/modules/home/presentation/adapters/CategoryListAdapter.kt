@@ -6,9 +6,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.recetasyape.app.databinding.ItemCategoryBinding
 import com.recetasyape.app.modules.home.data.dto.Category
+import com.recetasyape.app.modules.home.data.dto.Recipe
 import com.recetasyape.app.utils.extension_functions.setOnSafeClickListener
 
-class CategoryListAdapter(private var items: List<Category>) : RecyclerView.Adapter<CategoryListAdapter.ViewHolder>() {
+interface ICategoryEvent{
+    fun onRecipeClicked(recipe: Recipe)
+}
+
+class CategoryListAdapter(private var items: List<Category>, private var iCategoryEvent: ICategoryEvent) : RecyclerView.Adapter<CategoryListAdapter.ViewHolder>(), IRecipeEvent {
 
     inner class ViewHolder(val binding: ItemCategoryBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -23,7 +28,7 @@ class CategoryListAdapter(private var items: List<Category>) : RecyclerView.Adap
 
                 val item = this
                 binding.apply {
-                    val recipeThumbAdapter = RecipeThumbAdapter(item.recipes)
+                    val recipeThumbAdapter = RecipeThumbAdapter(item.recipes, this@CategoryListAdapter)
 
                     categoryName.text = item.categoryName
                     rvRecipe.layoutManager = LinearLayoutManager(itemView.context, LinearLayoutManager.HORIZONTAL, false)
@@ -31,13 +36,14 @@ class CategoryListAdapter(private var items: List<Category>) : RecyclerView.Adap
                 }
 
             }
-            this.itemView.setOnSafeClickListener {
-
-            }
         }
     }
 
     override fun getItemCount(): Int {
         return items.size
+    }
+
+    override fun onRecipeClick(recipe: Recipe) {
+        iCategoryEvent.onRecipeClicked(recipe)
     }
 }

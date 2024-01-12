@@ -8,7 +8,11 @@ import com.recetasyape.app.modules.home.data.dto.Recipe
 import com.recetasyape.app.utils.extension_functions.loadUrl
 import com.recetasyape.app.utils.extension_functions.setOnSafeClickListener
 
-class RecipeThumbAdapter(private var items: List<Recipe>) : RecyclerView.Adapter<RecipeThumbAdapter.ViewHolder>() {
+interface IRecipeEvent {
+    fun onRecipeClick(recipe: Recipe)
+}
+
+class RecipeThumbAdapter(private var items: List<Recipe>, private var recipeEvent: IRecipeEvent) : RecyclerView.Adapter<RecipeThumbAdapter.ViewHolder>() {
 
     inner class ViewHolder(val binding: ItemRecipeBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -22,9 +26,10 @@ class RecipeThumbAdapter(private var items: List<Recipe>) : RecyclerView.Adapter
             with(items[position]) {
                 binding.thumbMovie.loadUrl(context = holder.itemView.context, url = this.imageUrl)
                 binding.title.text = this.title
-            }
-            this.itemView.setOnSafeClickListener {
-                //iMovieEvent.onClickMovie(items[position])
+
+                binding.thumbMovie.setOnSafeClickListener {
+                    recipeEvent.onRecipeClick(items[position])
+                }
             }
         }
     }
