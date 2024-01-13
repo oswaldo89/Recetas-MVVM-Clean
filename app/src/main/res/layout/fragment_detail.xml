@@ -14,6 +14,20 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent=".35" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/normal_100"
+        android:backgroundTint="@color/white"
+        android:scaleType="center"
+        android:src="@drawable/ic_back"
+        app:fabCustomSize="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:shapeAppearanceOverlay="@style/RoundedFAB"
+        app:layout_constraintTop_toTopOf="parent"
+        app:maxImageSize="30dp" />
+
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageBanner"
         android:layout_width="0dp"
@@ -92,7 +106,7 @@
             android:layout_marginTop="@dimen/normal_100"
             android:ellipsize="end"
             android:fontFamily="sans-serif-thin"
-            android:maxLines="2"
+            android:maxLines="5"
             android:text="Este es una descripcon con texto largo, para ver si hace salto de renglon y no se descuadra la imagen "
             android:textSize="@dimen/text_medium_1"
             app:layout_constraintEnd_toEndOf="parent"

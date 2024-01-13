@@ -8,4 +8,9 @@
     </style>
 
     <style name="Theme.RecetasYape" parent="Base.Theme.RecetasYape" />
+
+    <style name="RoundedFAB" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item> <!-- El valor 50% asegura que el botón sea completamente redondo -->
+    </style>
 </resources>

@@ -9,6 +9,7 @@ import com.recetasyape.app.databinding.FragmentDetailBinding
 import com.recetasyape.app.modules.home.data.dto.Recipe
 import com.recetasyape.app.utils.extension_functions.loadUrl
 import com.recetasyape.app.utils.extension_functions.parcelable
+import com.recetasyape.app.utils.extension_functions.setOnSafeClickListener
 
 
 class DetailFragment : Fragment() {
@@ -19,6 +20,7 @@ class DetailFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentDetailBinding.inflate(inflater, container, false)
         setData()
+        setListeners()
 
         binding.apply {
             ratingBar.rating = 3f;
@@ -27,6 +29,12 @@ class DetailFragment : Fragment() {
         return binding.root
     }
 
+    private fun setListeners() {
+        binding.apply {
+            val fragmentManager = requireActivity().supportFragmentManager
+            back.setOnSafeClickListener { fragmentManager.popBackStack() }
+        }
+    }
 
     private fun setData() {
         arguments?.parcelable<Recipe>("data")?.apply {

@@ -10,4 +10,9 @@
         <item name="android:windowSplashScreenAnimatedIcon">@drawable/icon_app</item>
         <item name="android:windowSplashScreenAnimationDuration">5000</item>
     </style>
+
+    <style name="RoundedFAB" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item> <!-- El valor 50% asegura que el botón sea completamente redondo -->
+    </style>
 </resources>
