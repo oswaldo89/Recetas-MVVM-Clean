@@ -15,7 +15,7 @@
         app:layout_constraintGuide_percent=".35" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/back"
+        android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/normal_100"
@@ -24,9 +24,24 @@
         android:src="@drawable/ic_back"
         app:fabCustomSize="50dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:shapeAppearanceOverlay="@style/RoundedFAB"
         app:layout_constraintTop_toTopOf="parent"
-        app:maxImageSize="30dp" />
+        app:maxImageSize="30dp"
+        app:shapeAppearanceOverlay="@style/RoundedFAB" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/normal_100"
+        android:backgroundTint="@color/colorPrimary"
+        android:scaleType="center"
+        android:src="@drawable/ic_map"
+        app:fabCustomSize="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="30dp"
+        app:shapeAppearanceOverlay="@style/RoundedFAB"
+        app:tint="@color/white" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageBanner"
@@ -93,7 +108,7 @@
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:focusable="true"
-            android:src="@drawable/ic_bookmark"
+            android:src="@drawable/ic_star"
             app:layout_constraintBottom_toBottomOf="@+id/ratingBar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/ratingBar"
