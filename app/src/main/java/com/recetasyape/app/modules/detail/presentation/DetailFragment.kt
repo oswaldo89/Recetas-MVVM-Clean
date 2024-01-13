@@ -7,7 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.recetasyape.app.R
 import com.recetasyape.app.databinding.FragmentDetailBinding
-import com.recetasyape.app.modules.home.data.dto.Recipe
+import com.recetasyape.app.modules.home.data.dto.DataRecipe
+import com.recetasyape.app.modules.home.domain.model.Recipe
 import com.recetasyape.app.modules.map.presentation.MapFragment
 import com.recetasyape.app.utils.extension_functions.hideAndAddFragment
 import com.recetasyape.app.utils.extension_functions.loadUrl

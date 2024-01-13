@@ -5,11 +5,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.recetasyape.app.databinding.ItemCategoryBinding
-import com.recetasyape.app.modules.home.data.dto.Category
-import com.recetasyape.app.modules.home.data.dto.Recipe
-import com.recetasyape.app.utils.extension_functions.setOnSafeClickListener
+import com.recetasyape.app.modules.home.data.dto.DataCategory
+import com.recetasyape.app.modules.home.data.dto.DataRecipe
+import com.recetasyape.app.modules.home.domain.model.Category
+import com.recetasyape.app.modules.home.domain.model.Recipe
 
-interface ICategoryEvent{
+interface ICategoryEvent {
     fun onRecipeClicked(recipe: Recipe)
 }
 

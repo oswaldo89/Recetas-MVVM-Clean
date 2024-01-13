@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-class Location(
+class DataLocation(
     @SerializedName("latitude") val latitude: Double,
     @SerializedName("longitude") val longitude: Double
 ) : Parcelable

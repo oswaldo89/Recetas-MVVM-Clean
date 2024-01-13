@@ -11,8 +11,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.recetasyape.app.R
 import com.recetasyape.app.databinding.FragmentHomeBinding
 import com.recetasyape.app.modules.detail.presentation.DetailFragment
-import com.recetasyape.app.modules.home.data.dto.Category
-import com.recetasyape.app.modules.home.data.dto.Recipe
+import com.recetasyape.app.modules.home.data.dto.DataCategory
+import com.recetasyape.app.modules.home.data.dto.DataRecipe
+import com.recetasyape.app.modules.home.domain.model.Category
+import com.recetasyape.app.modules.home.domain.model.Recipe
 import com.recetasyape.app.modules.home.presentation.adapters.CategoryListAdapter
 import com.recetasyape.app.modules.home.presentation.adapters.ICategoryEvent
 import com.recetasyape.app.utils.OneTimeEventObserver
@@ -76,11 +78,6 @@ class HomeFragment : Fragment(), ICategoryEvent {
 
     override fun onRecipeClicked(recipe: Recipe) {
         viewModel.onRecipeClicked(recipe)
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        Log.v("oswaldo", "destroyed")
     }
 
 }

@@ -3,8 +3,10 @@ package com.recetasyape.app.modules.home.presentation
 import androidx.lifecycle.viewModelScope
 import com.recetasyape.app.BaseViewModel
 import com.recetasyape.app.core.di.IoDispatcher
-import com.recetasyape.app.modules.home.data.dto.Category
-import com.recetasyape.app.modules.home.data.dto.Recipe
+import com.recetasyape.app.modules.home.data.dto.DataCategory
+import com.recetasyape.app.modules.home.data.dto.DataRecipe
+import com.recetasyape.app.modules.home.domain.model.Category
+import com.recetasyape.app.modules.home.domain.model.Recipe
 import com.recetasyape.app.modules.home.domain.usecases.GetCategoriesUseCase
 import com.recetasyape.app.utils.launchSafe
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -21,8 +23,8 @@ class HomeViewModel @Inject constructor(
 
     fun init() {
         viewModelScope.launchSafe {
-            categoriesList = getCategories()
-            setState(State.ShowCategories(getCategories()))
+            categoriesList = getCategories().categories
+            setState(State.ShowCategories(getCategories().categories))
         }
     }
 
