@@ -6,4 +6,6 @@
 
     <color name="colorPrimary">#641B71</color>
     <color name="colorSecondary">#0FC1AC</color>
+
+    <color name="bg_rating_progress">#FFA500</color>
 </resources>

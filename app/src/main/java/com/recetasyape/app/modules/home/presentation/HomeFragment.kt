@@ -60,7 +60,7 @@ class HomeFragment : Fragment(), ICategoryEvent {
             OneTimeEventObserver {
                 when (it) {
                     is HomeViewModel.Navigation.GoToDetail -> {
-                        requireActivity().supportFragmentManager.hideAndAddFragment(R.id.nav_host_fragment, DetailFragment())
+                        requireActivity().supportFragmentManager.hideAndAddFragment(R.id.nav_host_fragment, DetailFragment(), dataObject = it.recipe)
                     }
                 }
             }

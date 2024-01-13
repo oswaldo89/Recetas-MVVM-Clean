@@ -1,9 +1,12 @@
 package com.recetasyape.app.modules.home.data.dto
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
-data class Recipe(
+@Parcelize
+class Recipe(
     @SerializedName("id") val id: Int,
     @SerializedName("title") val title: String,
     @SerializedName("description") val description: String,
@@ -13,4 +16,4 @@ data class Recipe(
     @SerializedName("calories") val calories: Int,
     @SerializedName("image_url") val imageUrl: String,
     @SerializedName("location") val location: Location,
-)
+) : Parcelable
