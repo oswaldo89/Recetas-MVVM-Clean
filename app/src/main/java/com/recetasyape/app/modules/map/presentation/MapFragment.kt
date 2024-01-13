@@ -14,6 +14,7 @@ import com.recetasyape.app.R
 import com.recetasyape.app.databinding.FragmentMapBinding
 import com.recetasyape.app.modules.home.data.dto.Recipe
 import com.recetasyape.app.utils.extension_functions.parcelable
+import com.recetasyape.app.utils.extension_functions.setOnSafeClickListener
 
 class MapFragment : Fragment() {
 
@@ -27,6 +28,8 @@ class MapFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentMapBinding.inflate(inflater, container, false)
+        setListeners()
+
         return binding.root
     }
 
@@ -35,6 +38,13 @@ class MapFragment : Fragment() {
         setDataMap()
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
+    }
+
+    private fun setListeners() {
+        binding.apply {
+            val fragmentManager = requireActivity().supportFragmentManager
+            btnBack.setOnSafeClickListener { fragmentManager.popBackStack() }
+        }
     }
 
     private fun setDataMap() {
