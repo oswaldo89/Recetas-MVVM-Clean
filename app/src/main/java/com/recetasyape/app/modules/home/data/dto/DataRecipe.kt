@@ -17,4 +17,5 @@ data class DataRecipe(
     @SerializedName("image_url") val imageUrl: String,
     @SerializedName("location") val location: DataLocation,
     @SerializedName("rating") val rating: Float,
+    @SerializedName("ingredients") val ingredients: List<String>
 ) : Parcelable

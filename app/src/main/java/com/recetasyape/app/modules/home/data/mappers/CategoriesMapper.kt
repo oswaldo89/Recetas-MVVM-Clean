@@ -50,7 +50,8 @@ fun DataRecipe.toDomainEntity(): Recipe {
         calories,
         imageUrl,
         location.toDomainEntity(),
-        rating
+        rating,
+        ingredients
     )
 }
 
@@ -65,7 +66,8 @@ fun Recipe.toDto(): DataRecipe {
         calories,
         imageUrl,
         location.toDto(),
-        rating
+        rating,
+        ingredients
     )
 }
 
