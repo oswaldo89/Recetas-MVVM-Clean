@@ -1,6 +1,7 @@
 package com.recetasyape.app.modules.home.presentation
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,9 +20,11 @@ import com.recetasyape.app.utils.extension_functions.hideAndAddFragment
 import com.recetasyape.app.utils.extension_functions.setVisibleOrGone
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
 class HomeFragment : Fragment(), ICategoryEvent {
 
+    private var dataTest: List<Recipe>? = null
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
@@ -32,11 +35,19 @@ class HomeFragment : Fragment(), ICategoryEvent {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         setupRecyclerView()
+        setupSearchListener()
         observeState()
         observeNavigation()
 
         viewModel.init()
         return binding.root
+    }
+
+    private fun setupSearchListener() {
+        binding.etSearch.onQueryChangeListener = { oldQuery, newQuery ->
+            Log.v("oswaldo", "query::$newQuery")
+            binding.etSearch.swapSuggestions(dataTest.orEmpty())
+        }
     }
 
     private fun setupRecyclerView() {
@@ -70,6 +81,8 @@ class HomeFragment : Fragment(), ICategoryEvent {
                     is HomeViewModel.Navigation.GoToDetail -> {
                         requireActivity().supportFragmentManager.hideAndAddFragment(R.id.nav_host_fragment, DetailFragment(), dataObject = it.recipe)
                     }
+
+                    else -> {}
                 }
             }
         )
@@ -79,6 +92,8 @@ class HomeFragment : Fragment(), ICategoryEvent {
         binding.apply {
             recetasAdapter = CategoryListAdapter(categories, this@HomeFragment)
             rvCategories.adapter = recetasAdapter
+            dataTest = categories[0].recipes
+            etSearch.swapSuggestions(categories[0].recipes)
         }
     }
 

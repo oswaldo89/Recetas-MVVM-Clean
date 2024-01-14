@@ -19,21 +19,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/et_search"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/searchGuideline"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/normal_100"
-        android:layout_marginTop="@dimen/small_100"
-        android:layout_marginEnd="@dimen/normal_100"
-        android:background="@drawable/bg_border"
-        android:drawableStart="@drawable/ic_search"
-        android:drawableTint="@color/gray_light"
-        android:hint="Cual es tu gusto hoy ?"
-        android:padding="@dimen/small_150"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeText" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".12" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_categories"
@@ -44,7 +35,26 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_search" />
+        app:layout_constraintTop_toBottomOf="@+id/searchGuideline"
+        tools:ignore="RtlSymmetry" />
+
+    <xyz.quaver.floatingsearchview.FloatingSearchView
+        android:id="@+id/et_search"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:close_search_on_keyboard_dismiss="true"
+        app:dimBackground="false"
+        app:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeText"
+        app:leftActionMode="showHamburger"
+        app:searchBarMarginLeft="@dimen/normal_100"
+        app:searchBarMarginRight="@dimen/normal_100"
+        app:searchBarMarginTop="@dimen/normal_100"
+        app:searchHint="Cual es tu gusto hoy ?"
+        app:showSearchKey="false"
+        app:suggestionAnimDuration="250" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -55,4 +65,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

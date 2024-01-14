@@ -51,7 +51,8 @@ fun DataRecipe.toDomainEntity(): Recipe {
         imageUrl,
         location.toDomainEntity(),
         rating,
-        ingredients
+        ingredients,
+        body = title
     )
 }
 
