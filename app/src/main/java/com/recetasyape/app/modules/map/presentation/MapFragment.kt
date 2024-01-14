@@ -10,9 +10,11 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.recetasyape.app.MainActivity.Companion.DATA_BUNDLE
 import com.recetasyape.app.R
 import com.recetasyape.app.databinding.FragmentMapBinding
 import com.recetasyape.app.modules.home.data.dto.DataRecipe
+import com.recetasyape.app.modules.home.domain.model.Recipe
 import com.recetasyape.app.utils.extension_functions.parcelable
 import com.recetasyape.app.utils.extension_functions.setOnSafeClickListener
 
@@ -21,7 +23,7 @@ class MapFragment : Fragment() {
     private var _binding: FragmentMapBinding? = null
     private val binding get() = _binding!!
 
-    private var data: DataRecipe? = null
+    private var data: Recipe? = null
     private var title: String = String()
     private var latitude: Double = 0.0
     private var longitude: Double = 0.0
@@ -48,7 +50,7 @@ class MapFragment : Fragment() {
     }
 
     private fun setDataMap() {
-        data = arguments?.parcelable<DataRecipe>("data")?.apply {
+        data = arguments?.parcelable<Recipe>(DATA_BUNDLE)?.apply {
             val item = this
             this@MapFragment.title = item.title
             latitude = item.location.latitude

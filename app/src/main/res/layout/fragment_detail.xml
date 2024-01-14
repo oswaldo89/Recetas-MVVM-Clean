@@ -28,21 +28,6 @@
         app:maxImageSize="30dp"
         app:shapeAppearanceOverlay="@style/RoundedFAB" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnMap"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/normal_100"
-        android:backgroundTint="@color/colorPrimary"
-        android:scaleType="center"
-        android:src="@drawable/ic_map"
-        app:fabCustomSize="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:maxImageSize="30dp"
-        app:shapeAppearanceOverlay="@style/RoundedFAB"
-        app:tint="@color/white" />
-
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageBanner"
         android:layout_width="0dp"
@@ -269,11 +254,26 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/valuesMeasures" />
 
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
 
 
     </androidx.core.widget.NestedScrollView>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/normal_100"
+        android:backgroundTint="@color/colorPrimary"
+        android:scaleType="center"
+        android:src="@drawable/ic_map"
+        app:fabCustomSize="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="30dp"
+        app:shapeAppearanceOverlay="@style/RoundedFAB"
+        app:tint="@color/white" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
