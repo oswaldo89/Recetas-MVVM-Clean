@@ -22,6 +22,10 @@ class DetailViewModel @Inject constructor(
         navigateTo(Navigation.ImageViewer(url))
     }
 
+    fun onShareClicked(recipe: Recipe) {
+        navigateTo(Navigation.ShareSocialNetworks(recipe))
+    }
+
     sealed class State {
         class LoadRecipe(val recipe: Recipe) : State()
     }
@@ -29,5 +33,6 @@ class DetailViewModel @Inject constructor(
     sealed class Navigation {
         class GoToMap(val recipe: Recipe) : Navigation()
         class ImageViewer(val url: String) : Navigation()
+        class ShareSocialNetworks(val recipe: Recipe) : Navigation()
     }
 }

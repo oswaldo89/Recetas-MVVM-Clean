@@ -14,6 +14,7 @@ import com.recetasyape.app.modules.detail.presentation.adapters.IngredientsAdapt
 import com.recetasyape.app.modules.home.domain.model.Recipe
 import com.recetasyape.app.modules.map.presentation.MapFragment
 import com.recetasyape.app.utils.OneTimeEventObserver
+import com.recetasyape.app.utils.WhatsAppShareUtil
 import com.recetasyape.app.utils.extension_functions.hideAndAddFragment
 import com.recetasyape.app.utils.extension_functions.loadUrl
 import com.recetasyape.app.utils.extension_functions.openImageInViewer
@@ -70,8 +71,13 @@ class DetailFragment : Fragment() {
             when (it) {
                 is DetailViewModel.Navigation.GoToMap -> openMap(it.recipe)
                 is DetailViewModel.Navigation.ImageViewer -> openImageViewer(it.url)
+                is DetailViewModel.Navigation.ShareSocialNetworks -> shareRecipe(it.recipe)
             }
         })
+    }
+
+    private fun shareRecipe(recipe: Recipe) {
+        WhatsAppShareUtil.shareRecipeOnWhatsApp(requireContext(), recipe)
     }
 
     private fun openImageViewer(url: String) {
@@ -82,12 +88,9 @@ class DetailFragment : Fragment() {
         binding.apply {
             val fragmentManager = requireActivity().supportFragmentManager
             btnBack.setOnSafeClickListener { fragmentManager.popBackStack() }
-            btnMap.setOnSafeClickListener {
-                data?.let {
-                    viewModel.onLoadMap(it)
-                }
-            }
             imageBanner.setOnSafeClickListener { viewModel.onImageClicked(data?.imageUrl.orEmpty()) }
+            btnMap.setOnSafeClickListener { data?.let { viewModel.onLoadMap(it) } }
+            share.setOnSafeClickListener { data?.let { viewModel.onShareClicked(it) } }
         }
     }
 
