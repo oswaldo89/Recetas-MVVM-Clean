@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.recetasyape.app.MainActivity.Companion.DATA_BUNDLE
 import com.recetasyape.app.R
 import com.recetasyape.app.databinding.FragmentDetailBinding
 import com.recetasyape.app.modules.home.data.dto.DataRecipe
@@ -12,6 +13,7 @@ import com.recetasyape.app.modules.home.domain.model.Recipe
 import com.recetasyape.app.modules.map.presentation.MapFragment
 import com.recetasyape.app.utils.extension_functions.hideAndAddFragment
 import com.recetasyape.app.utils.extension_functions.loadUrl
+import com.recetasyape.app.utils.extension_functions.openImageInViewer
 import com.recetasyape.app.utils.extension_functions.parcelable
 import com.recetasyape.app.utils.extension_functions.setOnSafeClickListener
 
@@ -20,7 +22,7 @@ class DetailFragment : Fragment() {
 
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
-    private var data : Recipe? = null
+    private var data: Recipe? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentDetailBinding.inflate(inflater, container, false)
@@ -36,17 +38,24 @@ class DetailFragment : Fragment() {
             btnMap.setOnSafeClickListener {
                 requireActivity().supportFragmentManager.hideAndAddFragment(R.id.nav_host_fragment, MapFragment(), dataObject = data)
             }
+            imageBanner.setOnSafeClickListener {
+                requireActivity().openImageInViewer(data?.imageUrl.orEmpty())
+            }
         }
     }
 
     private fun setData() {
-        data = arguments?.parcelable<Recipe>("data")?.apply {
+        data = arguments?.parcelable<Recipe>(DATA_BUNDLE)?.apply {
             val item = this
             binding.apply {
                 imageBanner.loadUrl(requireContext(), item.imageUrl)
                 title.text = item.title
                 description.text = item.description
-                ratingBar.rating = 3f;
+                ratingBar.rating = item.rating
+                ingredients.text = item.ingredientsCount.toString()
+                difficulty.text = item.difficultyLevel
+                time.text = item.time.toString()
+                fat.text = item.calories.toString()
             }
         }
     }

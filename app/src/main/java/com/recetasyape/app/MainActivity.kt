@@ -23,4 +23,8 @@ class MainActivity : AppCompatActivity() {
                 .commit()
         }
     }
+
+    companion object {
+        const val DATA_BUNDLE = "data";
+    }
 }
