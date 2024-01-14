@@ -8,3 +8,7 @@ fun View.setOnSafeClickListener(onSafeClick: (View) -> Unit) {
         onSafeClick(v)
     })
 }
+
+fun View.setVisibleOrGone(isVisible: Boolean) {
+    visibility = if (isVisible) View.VISIBLE else View.GONE
+}

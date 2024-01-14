@@ -18,10 +18,6 @@ abstract class BaseViewModel<STATE, NAVIGATION> : ViewModel() {
     fun hasViewState() = state.value != null
 
     fun setState(newState: STATE) {
-        state.postValue(newState)
-    }
-
-    fun setValue(newState: STATE) {
         state.value = newState
     }
 

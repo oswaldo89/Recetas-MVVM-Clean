@@ -1,7 +1,6 @@
 package com.recetasyape.app.modules.home.presentation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,14 +10,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.recetasyape.app.R
 import com.recetasyape.app.databinding.FragmentHomeBinding
 import com.recetasyape.app.modules.detail.presentation.DetailFragment
-import com.recetasyape.app.modules.home.data.dto.DataCategory
-import com.recetasyape.app.modules.home.data.dto.DataRecipe
 import com.recetasyape.app.modules.home.domain.model.Category
 import com.recetasyape.app.modules.home.domain.model.Recipe
 import com.recetasyape.app.modules.home.presentation.adapters.CategoryListAdapter
 import com.recetasyape.app.modules.home.presentation.adapters.ICategoryEvent
 import com.recetasyape.app.utils.OneTimeEventObserver
 import com.recetasyape.app.utils.extension_functions.hideAndAddFragment
+import com.recetasyape.app.utils.extension_functions.setVisibleOrGone
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -51,8 +49,16 @@ class HomeFragment : Fragment(), ICategoryEvent {
         viewModel.stateLiveData.observe(requireActivity()) {
             when (it) {
                 is HomeViewModel.State.ShowCategories -> showData(it.categories)
+                is HomeViewModel.State.Loading -> showLoading(it.loading)
                 else -> {}
             }
+        }
+    }
+
+    private fun showLoading(loading: Boolean) {
+        binding.let {
+            it.progressBar.setVisibleOrGone(loading)
+            it.rvCategories.setVisibleOrGone(!loading)
         }
     }
 
