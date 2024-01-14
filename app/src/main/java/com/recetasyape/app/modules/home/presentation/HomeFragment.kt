@@ -44,9 +44,8 @@ class HomeFragment : Fragment(), ICategoryEvent {
     }
 
     private fun setupSearchListener() {
-        binding.etSearch.onQueryChangeListener = { oldQuery, newQuery ->
-            Log.v("oswaldo", "query::$newQuery")
-            binding.etSearch.swapSuggestions(dataTest.orEmpty())
+        binding.etSearch.onQueryChangeListener = { _, newQuery ->
+            viewModel.onSearchTyped(newQuery)
         }
     }
 
@@ -61,9 +60,14 @@ class HomeFragment : Fragment(), ICategoryEvent {
             when (it) {
                 is HomeViewModel.State.ShowCategories -> showData(it.categories)
                 is HomeViewModel.State.Loading -> showLoading(it.loading)
+                is HomeViewModel.State.SwapSuggestions -> swapSearchView(it.recipes)
                 else -> {}
             }
         }
+    }
+
+    private fun swapSearchView(recipes: List<Recipe>) {
+        binding.etSearch.swapSuggestions(recipes)
     }
 
     private fun showLoading(loading: Boolean) {
@@ -74,18 +78,13 @@ class HomeFragment : Fragment(), ICategoryEvent {
     }
 
     private fun observeNavigation() {
-        viewModel.navigationLiveData.observe(
-            viewLifecycleOwner,
-            OneTimeEventObserver {
-                when (it) {
-                    is HomeViewModel.Navigation.GoToDetail -> {
-                        requireActivity().supportFragmentManager.hideAndAddFragment(R.id.nav_host_fragment, DetailFragment(), dataObject = it.recipe)
-                    }
-
-                    else -> {}
+        viewModel.navigationLiveData.observe(viewLifecycleOwner, OneTimeEventObserver {
+            when (it) {
+                is HomeViewModel.Navigation.GoToDetail -> {
+                    requireActivity().supportFragmentManager.hideAndAddFragment(R.id.nav_host_fragment, DetailFragment(), dataObject = it.recipe)
                 }
             }
-        )
+        })
     }
 
     private fun showData(categories: List<Category>) {
