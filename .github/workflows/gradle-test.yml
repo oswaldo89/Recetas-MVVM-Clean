@@ -15,7 +15,9 @@ jobs:
           java-version: '17'
 
       - name: Use Gradle version 8.0
-        run: ./gradlew wrapper --gradle-version 8.0
+        run: |
+          ./gradlew wrapper --gradle-version 8.0
+          chmod +x ./gradlew
 
       - name: Execute unit tests
         run: ./gradlew testDebugUnitTest
