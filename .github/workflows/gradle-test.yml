@@ -14,14 +14,11 @@ jobs:
           distribution: 'adopt'
           java-version: '17'
 
-      - name: Install Android SDK
-        run: |
-          mkdir -p $HOME/android-sdk/cmdline-tools
-          export ANDROID_HOME=$HOME/android-sdk
-          wget -q https://dl.google.com/android/repository/commandlinetools-linux-7302050_latest.zip -O android-sdk.zip
-          unzip -q android-sdk.zip -d $ANDROID_HOME/cmdline-tools
-          export PATH=$PATH:$ANDROID_HOME/cmdline-tools/bin
-          echo "y" | $ANDROID_HOME/cmdline-tools/bin/sdkmanager --install "platforms;android-30" "build-tools;30.0.2"
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          sdk-platform: "30"
+          build-tools: "30.0.2"
 
       - name: Create local.properties
         run: |
