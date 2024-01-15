@@ -41,7 +41,7 @@ class GetCategoriesUseCaseTest {
         // Act
         val result = getCategories()
 
-        // Assert
+        // Assertt
         assertTrue(result.categories.isEmpty())
     }
 
