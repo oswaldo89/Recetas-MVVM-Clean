@@ -17,10 +17,11 @@ jobs:
       - name: Configure Gradle for Java 17
         run: echo "org.gradle.java.home=${{ runner.tool_cache }}/Java_Adopt_jdk/17.0.1-1/x64" > gradle.properties
 
+      - name: Grant execute permissions to gradlew
+        run: chmod +x ./gradlew
+
       - name: Use Gradle version 8.0
-        run: |
-          ./gradlew wrapper --gradle-version 8.0
-          chmod +x gradlew
+        run: ./gradlew wrapper --gradle-version 8.0
 
       - name: Execute unit tests
         run: ./gradlew testDebugUnitTest
