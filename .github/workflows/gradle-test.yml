@@ -31,22 +31,16 @@ jobs:
           ./gradlew clean
 
       - name: Execute unit tests
-        id: test
         run: ./gradlew testDebugUnitTest
+
+      - name: Comment on Pull Request if tests fail
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            The unit tests have failed. :warning:
+          reactions: -1
+        if: failure()
 
       - name: Android Test Report
         uses: asadmansr/android-test-report-action@v1.2.0
         if: ${{ always() }}
-
-      - name: Add comment on test failure
-        if: steps.test.outcome == 'failure'
-        uses: actions/github-script@v5
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            await github.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              body: '⚠️⚠️⚠️ Las pruebas unitarias han fallado. Por favor, revisa los detalles.'
-            });
