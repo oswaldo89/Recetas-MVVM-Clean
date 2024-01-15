@@ -22,6 +22,7 @@ object Versions {
     const val mockk = "1.13.2"
     const val kotlinxCoroutinesTest = "1.6.4"
     const val junitJupiter = "5.9.1"
+    const val firebaseBom = "32.7.0"
 }
 
 object Deps {
@@ -54,4 +55,7 @@ object Deps {
     const val junitJupiterEngine = "org.junit.jupiter:junit-jupiter-engine:${Versions.junitJupiter}"
     const val junitJupiterParams = "org.junit.jupiter:junit-jupiter-params:${Versions.junitJupiter}"
     const val junitVintageEngine = "org.junit.vintage:junit-vintage-engine:${Versions.junitJupiter}"
+    const val firebaseBom = "com.google.firebase:firebase-bom:${Versions.firebaseBom}"
+    const val firebaseAnalytics = "com.google.firebase:firebase-analytics"
+    const val firebaseCrashlytics = "com.google.firebase:firebase-crashlytics"
 }

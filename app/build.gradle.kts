@@ -8,6 +8,8 @@ plugins {
     id("com.google.dagger.hilt.android")
     id("kotlin-parcelize")
     id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
+    id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
 }
 
 android {
@@ -85,13 +87,17 @@ dependencies {
     testImplementation(Deps.junit)
     androidTestImplementation(Deps.junitExt)
     androidTestImplementation(Deps.espressoCore)
-
     testImplementation(Deps.mockk)
     testImplementation(Deps.kotlinxCoroutinesTest)
     testImplementation(Deps.junitJupiterApi)
     testRuntimeOnly(Deps.junitJupiterEngine)
     testImplementation(Deps.junitJupiterParams)
     testRuntimeOnly(Deps.junitVintageEngine)
+
+    //Crash Reporting
+    implementation(enforcedPlatform(Deps.firebaseBom))
+    implementation(Deps.firebaseAnalytics)
+    implementation(Deps.firebaseCrashlytics)
 }
 
 tasks.withType<Test> {
