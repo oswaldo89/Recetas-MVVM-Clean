@@ -13,13 +13,15 @@ jobs:
         with:
           distribution: 'adopt'
           java-version: '17'
-          
-      - name: Grant execute permissions to gradlew
-        run: chmod +x gradlew
+
+      - name: Remove local.properties
+        run: rm -f local.properties
 
       - name: Use Gradle version 8.0
         run: |
+          chmod +x gradlew
           ./gradlew wrapper --gradle-version 8.0
+          ./gradlew clean
 
       - name: Execute unit tests
         run: ./gradlew testDebugUnitTest
