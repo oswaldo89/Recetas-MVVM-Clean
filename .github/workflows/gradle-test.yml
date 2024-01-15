@@ -14,8 +14,18 @@ jobs:
           distribution: 'adopt'
           java-version: '17'
 
-      - name: Remove local.properties
-        run: rm -f local.properties
+      - name: Install Android SDK
+        run: |
+          mkdir -p $HOME/android-sdk
+          export ANDROID_HOME=$HOME/android-sdk
+          wget -q https://dl.google.com/android/repository/commandlinetools-linux-7302050_latest.zip -O android-sdk.zip
+          unzip -q android-sdk.zip -d $ANDROID_HOME
+          export PATH=$PATH:$ANDROID_HOME/cmdline-tools/bin
+          sdkmanager --install "platforms;android-30" "build-tools;30.0.2"
+
+      - name: Create local.properties
+        run: |
+          echo "sdk.dir=${ANDROID_HOME}" > local.properties
 
       - name: Use Gradle version 8.0
         run: |
