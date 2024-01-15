@@ -1,3 +1,6 @@
+import dependencies.Deps
+import scripts.validateLayoutDimensions
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -44,63 +47,35 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.11.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("com.google.android.gms:play-services-maps:18.2.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-
-    //floating searchview
-    implementation("xyz.quaver:floatingsearchview:1.2.0-rc2")
-
-    implementation("com.google.android.material:material:1.11.0")
-    implementation("androidx.core:core-splashscreen:1.0.1")
-
-    //navigation
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.6")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
-
-    // networking
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
-
-    // Dependency Injection
-    implementation("com.google.dagger:hilt-android:2.44")
-    kapt("com.google.dagger:hilt-android-compiler:2.44")
-
-    //MVVM
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
-    implementation("androidx.activity:activity-ktx:1.8.0")
-    implementation("androidx.fragment:fragment-ktx:1.6.2")
-
-    // Image libraries
-    implementation("com.github.bumptech.glide:glide:4.14.2")
-    kapt("com.github.bumptech.glide:compiler:4.14.2")
+    implementation(Deps.coreKtx)
+    implementation(Deps.appCompat)
+    implementation(Deps.material)
+    implementation(Deps.constraintLayout)
+    implementation(Deps.playServicesMaps)
+    testImplementation(Deps.junit)
+    androidTestImplementation(Deps.junitExt)
+    androidTestImplementation(Deps.espressoCore)
+    implementation(Deps.floatingSearchView)
+    implementation(Deps.coreSplashScreen)
+    implementation(Deps.navigationFragmentKtx)
+    implementation(Deps.navigationUiKtx)
+    implementation(Deps.retrofit)
+    implementation(Deps.retrofitGson)
+    implementation(Deps.okHttpLoggingInterceptor)
+    implementation(Deps.daggerHilt)
+    kapt(Deps.daggerHiltCompiler)
+    implementation(Deps.lifecycleLiveDataKtx)
+    implementation(Deps.lifecycleViewModelKtx)
+    implementation(Deps.activityKtx)
+    implementation(Deps.fragmentKtx)
+    implementation(Deps.glide)
+    kapt(Deps.glideCompiler)
 
 }
 
 tasks.register("validateLayoutDimensions") {
     doLast {
-        val layoutFiles = fileTree("src/main/res/layout").matching {
-            include("**/*.xml")
-        }
-
-        layoutFiles.forEach { layoutFile ->
-            val lines = layoutFile.readLines()
-            lines.forEachIndexed { index, line ->
-                val regex = """android:layout_(width|height)\s*=\s*["'](?!(0dp|wrap_content|match_parent|0{1,}\d*dp|@dimen/[^"']*))[^\n]*["']""".toRegex()
-                val matches = regex.findAll(line.trim())
-                if (matches.any()) {
-                    println("Archivo: ${layoutFile.name}, Linea: ${index + 1}, Contenido: $line")
-                    throw GradleException("Validacion fallida: Dimensiones hardcodeadas!")
-                }
-            }
-        }
+        validateLayoutDimensions(project)
     }
 }
 
