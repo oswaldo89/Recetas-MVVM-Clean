@@ -17,8 +17,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/thumbMovie"
-            android:layout_width="@dimen/movie_thumb_width"
-            android:layout_height="@dimen/movie_thumb_height"
+            android:layout_width="@dimen/recipe_thumb_width"
+            android:layout_height="@dimen/recipe_thumb_height"
             android:background="#1e272e"
             android:clickable="true"
             android:focusable="true"

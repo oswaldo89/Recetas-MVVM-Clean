@@ -83,3 +83,27 @@ dependencies {
     kapt("com.github.bumptech.glide:compiler:4.14.2")
 
 }
+
+tasks.register("validateLayoutDimensions") {
+    doLast {
+        val layoutFiles = fileTree("src/main/res/layout").matching {
+            include("**/*.xml")
+        }
+
+        layoutFiles.forEach { layoutFile ->
+            val lines = layoutFile.readLines()
+            lines.forEachIndexed { index, line ->
+                val regex = """android:layout_(width|height)\s*=\s*["'](?!(0dp|wrap_content|match_parent|0{1,}\d*dp|@dimen/[^"']*))[^\n]*["']""".toRegex()
+                val matches = regex.findAll(line.trim())
+                if (matches.any()) {
+                    println("Archivo: ${layoutFile.name}, Linea: ${index + 1}, Contenido: $line")
+                    throw GradleException("Validacion fallida: Dimensiones hardcodeadas!")
+                }
+            }
+        }
+    }
+}
+
+tasks.named("preBuild") {
+    dependsOn("validateLayoutDimensions")
+}

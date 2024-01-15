@@ -175,25 +175,25 @@
 
                     <ImageView
                         android:layout_width="0dp"
-                        android:layout_height="70dp"
+                        android:layout_height="@dimen/icon_measure_height"
                         android:layout_weight="1"
                         android:src="@drawable/ic_ingredients" />
 
                     <ImageView
                         android:layout_width="0dp"
-                        android:layout_height="70dp"
+                        android:layout_height="@dimen/icon_measure_height"
                         android:layout_weight="1"
                         android:src="@drawable/ic_dificultad" />
 
                     <ImageView
                         android:layout_width="0dp"
-                        android:layout_height="70dp"
+                        android:layout_height="@dimen/icon_measure_height"
                         android:layout_weight="1"
                         android:src="@drawable/ic_clock" />
 
                     <ImageView
                         android:layout_width="0dp"
-                        android:layout_height="70dp"
+                        android:layout_height="@dimen/icon_measure_height"
                         android:layout_weight="1"
                         android:src="@drawable/ic_fat" />
 
