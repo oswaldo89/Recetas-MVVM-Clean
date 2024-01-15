@@ -108,7 +108,7 @@ class HomeFragment : Fragment(), ICategoryEvent {
     }
 
     override fun onRecipeClicked(recipe: Recipe) {
-        //throw RuntimeException("Test Crash") // Force a crash
+        //throw RuntimeException("Test Crash with slack") // Force a crash
         viewModel.onRecipeClicked(recipe)
     }
 
