@@ -39,23 +39,14 @@ jobs:
         if: ${{ always() }}
 
       - name: Add comment on test failure
+        if: steps.test.outcome == 'failure'
         uses: actions/github-script@v5
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const { data: checks } = await github.checks.listForRef({
+            await github.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              ref: context.sha
+              issue_number: context.issue.number,
+              body: '⚠️⚠️⚠️ Las pruebas unitarias han fallado. Por favor, revisa los detalles.'
             });
-
-            const checkRun = checks.check_runs.find(check => check.name === 'Android CI');
-
-            if (checkRun.conclusion === 'failure') {
-              await github.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: context.issue.number,
-                body: '⚠️⚠️⚠️ Las pruebas unitarias han fallado. Por favor, revisa los detalles.'
-              });
-            }
