@@ -19,6 +19,9 @@ object Versions {
     const val activityKtx = "1.8.0"
     const val fragmentKtx = "1.6.2"
     const val glide = "4.14.2"
+    const val mockk = "1.13.2"
+    const val kotlinxCoroutinesTest = "1.6.4"
+    const val junitJupiter = "5.9.1"
 }
 
 object Deps {
@@ -27,9 +30,6 @@ object Deps {
     const val material = "com.google.android.material:material:${Versions.material}"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
     const val playServicesMaps = "com.google.android.gms:play-services-maps:${Versions.playServicesMaps}"
-    const val junit = "junit:junit:${Versions.junit}"
-    const val junitExt = "androidx.test.ext:junit:${Versions.junitExt}"
-    const val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
     const val floatingSearchView = "xyz.quaver:floatingsearchview:${Versions.floatingSearchView}"
     const val coreSplashScreen = "androidx.core:core-splashscreen:${Versions.coreSplashScreen}"
     const val navigationFragmentKtx = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
@@ -45,4 +45,13 @@ object Deps {
     const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtx}"
     const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
     const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
+    const val junit = "junit:junit:4.13.2"
+    const val junitExt = "androidx.test.ext:junit:1.1.3"
+    const val espressoCore = "androidx.test.espresso:espresso-core:3.4.0"
+    const val mockk = "io.mockk:mockk:${Versions.mockk}"
+    const val kotlinxCoroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.kotlinxCoroutinesTest}"
+    const val junitJupiterApi = "org.junit.jupiter:junit-jupiter-api:${Versions.junitJupiter}"
+    const val junitJupiterEngine = "org.junit.jupiter:junit-jupiter-engine:${Versions.junitJupiter}"
+    const val junitJupiterParams = "org.junit.jupiter:junit-jupiter-params:${Versions.junitJupiter}"
+    const val junitVintageEngine = "org.junit.vintage:junit-vintage-engine:${Versions.junitJupiter}"
 }
