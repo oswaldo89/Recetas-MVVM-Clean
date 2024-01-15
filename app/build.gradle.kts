@@ -78,16 +78,6 @@ tasks.register("validateLayoutDimensions") {
     }
 }
 
-tasks.register("installLocalGitHook", Copy::class) {
-    from(File(rootProject.rootDir, "scripts/pre-push"))
-    into(File(rootProject.rootDir, ".git/hooks"))
-    fileMode = Integer.parseInt("775", 8)
-}
-
-tasks.named("build"){
-    dependsOn("installLocalGitHook")
-}
-
 tasks.named("preBuild") {
     dependsOn("validateLayoutDimensions")
 }
