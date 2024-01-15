@@ -70,7 +70,6 @@ dependencies {
     implementation(Deps.fragmentKtx)
     implementation(Deps.glide)
     kapt(Deps.glideCompiler)
-
 }
 
 tasks.register("validateLayoutDimensions") {
