@@ -1,7 +1,6 @@
 package com.recetasyape.app.modules.home.presentation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,6 +18,8 @@ import com.recetasyape.app.utils.OneTimeEventObserver
 import com.recetasyape.app.utils.extension_functions.hideAndAddFragment
 import com.recetasyape.app.utils.extension_functions.setVisibleOrGone
 import dagger.hilt.android.AndroidEntryPoint
+import xyz.quaver.floatingsearchview.FloatingSearchView
+import xyz.quaver.floatingsearchview.suggestions.model.SearchSuggestion
 
 
 @AndroidEntryPoint
@@ -44,8 +45,18 @@ class HomeFragment : Fragment(), ICategoryEvent {
     }
 
     private fun setupSearchListener() {
-        binding.etSearch.onQueryChangeListener = { _, newQuery ->
-            viewModel.onSearchTyped(newQuery)
+        binding.apply {
+            etSearch.onQueryChangeListener = { _, newQuery -> viewModel.onSearchTyped(newQuery) }
+            etSearch.onSearchListener = object : FloatingSearchView.OnSearchListener {
+                override fun onSuggestionClicked(searchSuggestion: SearchSuggestion?) {
+                    val recipe: Recipe = searchSuggestion as Recipe
+                    viewModel.onRecipeClicked(recipe)
+                    etSearch.clearSearchFocus()
+                    etSearch.setSearchText("")
+                }
+
+                override fun onSearchAction(currentQuery: String?) {}
+            }
         }
     }
 
