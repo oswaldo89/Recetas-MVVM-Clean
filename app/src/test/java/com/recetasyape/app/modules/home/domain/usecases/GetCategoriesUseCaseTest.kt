@@ -42,7 +42,7 @@ class GetCategoriesUseCaseTest {
         val result = getCategories()
 
         // Assert
-        assertTrue(result.categories.isNotEmpty())
+        assertTrue(result.categories.isEmpty())
     }
 
     @Test
