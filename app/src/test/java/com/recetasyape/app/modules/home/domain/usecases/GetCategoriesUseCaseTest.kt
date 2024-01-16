@@ -73,4 +73,5 @@ class GetCategoriesUseCaseTest {
         assertEquals(expectedErrorMessage, result.exceptionOrNull()?.message)
     }
 
+    //little comment only for testing commit
 }
