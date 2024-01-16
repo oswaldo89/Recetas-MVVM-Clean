@@ -1,21 +1,6 @@
 # Android Clean Architecture (App de Recetas)  
 A continuación, describo cómo está estructurada la siguiente aplicación, explicando la arquitectura y tecnologías usadas para el desarrollo. Esta app muestra una lista de recetas con su detalle, al igual que muestra la ubicación en un mapa de donde es originario el platillo.
 
-## Características
-
-| Funcionalidad | Descripción |
-|---------------|-------------|
-| API SplashScreen | ![API SplashScreen](https://img.shields.io/badge/API-SplashScreen-blue) |
-| Common Dimens values | ![Common Dimens values](https://img.shields.io/badge/Common-Dimens%20Values-green) |
-| FloatingSearchView | ![FloatingSearchView](https://img.shields.io/badge/FloatingSearchView-yellow) |
-| Social Whatsapp | ![FloatingSearchView](https://img.shields.io/badge/Whatsapp-green) |
-
-#### Diseño
-
-| Tecnología | Descripción |
-|------------|-------------|
-| Material Design | ![Material Design](https://img.shields.io/badge/Material%20Design-purple) |
-| ViewBinding | ![ViewBinding](https://img.shields.io/badge/ViewBinding-orange) |
 
 #### Arquitectura
 
@@ -47,4 +32,22 @@ A continuación, describo cómo está estructurada la siguiente aplicación, exp
 | Herramienta | Descripción |
 |-------------|-------------|
 | Proguard (ofuscación) | ![Proguard](https://img.shields.io/badge/Proguard-yellowgreen) |
+
+#### Extras
+
+| Funcionalidad | Descripción |
+|---------------|-------------|
+| API SplashScreen | ![API SplashScreen](https://img.shields.io/badge/API-SplashScreen-blue) |
+| Common Dimens values | ![Common Dimens values](https://img.shields.io/badge/Common-Dimens%20Values-green) |
+| FloatingSearchView | ![FloatingSearchView](https://img.shields.io/badge/FloatingSearchView-yellow) |
+| Social Whatsapp | ![FloatingSearchView](https://img.shields.io/badge/Whatsapp-green) |
+
+#### Diseño
+
+| Tecnología | Descripción |
+|------------|-------------|
+| Material Design | ![Material Design](https://img.shields.io/badge/Material%20Design-purple) |
+| ViewBinding | ![ViewBinding](https://img.shields.io/badge/ViewBinding-orange) |
+
+
 
