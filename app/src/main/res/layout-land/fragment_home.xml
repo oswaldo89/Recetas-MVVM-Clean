@@ -42,6 +42,7 @@
         android:id="@+id/et_search"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        app:backgroundColor="@color/white"
         app:close_search_on_keyboard_dismiss="true"
         app:dimBackground="false"
         app:elevation="4dp"
