@@ -10,14 +10,14 @@ A continuación, describo cómo está estructurada la siguiente aplicación, exp
 | FloatingSearchView | ![FloatingSearchView](https://img.shields.io/badge/FloatingSearchView-yellow) |
 | Social Whatsapp | ![FloatingSearchView](https://img.shields.io/badge/Whatsapp-green) |
 
-## Diseño
+#### Diseño
 
 | Tecnología | Descripción |
 |------------|-------------|
 | Material Design | ![Material Design](https://img.shields.io/badge/Material%20Design-purple) |
 | ViewBinding | ![ViewBinding](https://img.shields.io/badge/ViewBinding-orange) |
 
-## Arquitectura
+#### Arquitectura
 
 | Concepto | Descripción |
 |----------|-------------|
@@ -27,19 +27,22 @@ A continuación, describo cómo está estructurada la siguiente aplicación, exp
 | Unit Testing | ![Unit Testing](https://img.shields.io/badge/Unit%20Testing-success) |
 | Kotlin DSL multi-module support | ![Kotlin DSL](https://img.shields.io/badge/Kotlin%20DSL-informational) |
 
-## Automatización
+#### Automatización
 
-- Github Actions for Unit Test
-- Validación de valores "hardcodeados" (dimens) en XML
+| Proceso | Descripción |
+|------------|-------------|
+| Github Actions | ![Github Actions](https://img.shields.io/badge/github-actions-blue) |
+| Gradle Taks | ![Gradle](https://img.shields.io/badge/gradle-green) |
 
-## Reporte de Errores
+
+#### Reporte de Errores
 
 | Plataforma | Descripción |
 |------------|-------------|
 | Firebase Crashlytics | ![Crashlytics](https://img.shields.io/badge/Crashlytics-critical) |
 | Slack notifications by Crashlytics | ![Slack](https://img.shields.io/badge/Slack-important) |
 
-## Seguridad
+#### Seguridad
 
 | Herramienta | Descripción |
 |-------------|-------------|
