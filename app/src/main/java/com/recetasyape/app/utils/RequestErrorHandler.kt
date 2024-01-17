@@ -12,21 +12,6 @@ import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
 
 /**
- * Simplify launching a coroutine in conjunction with DomainErrorFactory handling
- */
-inline fun ViewModel.launch(
-    crossinline onError: (error: DomainException) -> Unit,
-    dispatcher: CoroutineContext = Dispatchers.IO,
-    noinline block: suspend CoroutineScope.() -> Unit,
-) {
-    viewModelScope.launchSafe(
-        dispatcher = dispatcher,
-        onDomainException = onError,
-        block = block
-    )
-}
-
-/**
  * Simplify launching a coroutine for legacy
  */
 @SuppressLint("LongLogTag")

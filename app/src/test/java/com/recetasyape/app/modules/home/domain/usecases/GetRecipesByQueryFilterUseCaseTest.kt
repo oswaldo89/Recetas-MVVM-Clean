@@ -5,6 +5,7 @@ import com.recetasyape.app.modules.home.domain.model.Category
 import com.recetasyape.app.modules.home.domain.model.Location
 import com.recetasyape.app.modules.home.domain.model.Recipe
 import com.recetasyape.app.utils.CoroutineTestExtension
+import com.recetasyape.app.utils.DummyData
 import com.recetasyape.app.utils.InstantExecutorExtension
 import io.mockk.MockKAnnotations
 import io.mockk.every
@@ -31,7 +32,7 @@ class GetRecipesByQueryFilterUseCaseTest {
         // Arrange
         val searchTerm = "Tortilla"
         val data = mockk<Categories>(relaxed = true)
-        val expectedCategories = dummyData()
+        val expectedCategories = DummyData.get()
 
         every { data.categories } returns expectedCategories
 
@@ -48,7 +49,7 @@ class GetRecipesByQueryFilterUseCaseTest {
         // Arrange
         val searchTerm = "NonexistentRecipe"
         val data = mockk<Categories>(relaxed = true)
-        val expectedCategories = dummyData()
+        val expectedCategories = DummyData.get()
 
         every { data.categories } returns expectedCategories
 
@@ -57,28 +58,6 @@ class GetRecipesByQueryFilterUseCaseTest {
 
         // Assert
         assertEquals(0, result.size)
-    }
-
-    private fun dummyData(): List<Category> {
-        return listOf(
-            Category(
-                1, "Desayunos FIT", listOf(
-                    Recipe(
-                        1,
-                        "Tortilla de claras con espinacas",
-                        "Una opción deliciosa y baja en calorías para empezar el día.",
-                        4,
-                        "BAJA",
-                        15,
-                        200,
-                        "https://contenido.quesosdeeuropa.com/uploads/quiche_b88618d2d8.jpg",
-                        Location(19.4326, -99.1332),
-                        5f,
-                        listOf("Ingrediente 1", "Ingrediente 2")
-                    )
-                )
-            )
-        )
     }
 
 

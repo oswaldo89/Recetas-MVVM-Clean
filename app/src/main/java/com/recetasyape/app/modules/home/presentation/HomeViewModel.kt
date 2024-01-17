@@ -16,17 +16,16 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val getCategories: GetCategoriesUseCase,
     private val getRecipesByQueryFilter: GetRecipesByQueryFilterUseCase,
-    @IoDispatcher private var dispatcher: CoroutineDispatcher
 ) : BaseViewModel<HomeViewModel.State, HomeViewModel.Navigation>() {
 
     private lateinit var categoriesList: List<Category>
 
     fun init() {
         viewModelScope.launchSafe {
-            setState(State.Loading(true))
+            setValue(State.Loading(true))
             categoriesList = getCategories().categories
-            setState(State.ShowCategories(getCategories().categories))
-            setState(State.Loading(false))
+            setValue(State.ShowCategories(getCategories().categories))
+            setValue(State.Loading(false))
         }
     }
 
