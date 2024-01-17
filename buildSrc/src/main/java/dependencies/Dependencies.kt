@@ -23,6 +23,7 @@ object Versions {
     const val kotlinxCoroutinesTest = "1.6.4"
     const val junitJupiter = "5.9.1"
     const val firebaseBom = "32.7.0"
+    const val HILT_VERSION = "2.42"
 }
 
 object Deps {
@@ -58,4 +59,5 @@ object Deps {
     const val firebaseBom = "com.google.firebase:firebase-bom:${Versions.firebaseBom}"
     const val firebaseAnalytics = "com.google.firebase:firebase-analytics"
     const val firebaseCrashlytics = "com.google.firebase:firebase-crashlytics"
+    val HILT_ANDROID_TESTING by lazy { "com.google.dagger:hilt-android-testing:${Versions.HILT_VERSION}" }
 }

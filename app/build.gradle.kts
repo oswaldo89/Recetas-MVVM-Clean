@@ -94,6 +94,7 @@ dependencies {
     testRuntimeOnly(Deps.junitJupiterEngine)
     testImplementation(Deps.junitJupiterParams)
     testRuntimeOnly(Deps.junitVintageEngine)
+    testImplementation(Deps.HILT_ANDROID_TESTING)
 
     //Crash Reporting
     implementation(enforcedPlatform(Deps.firebaseBom))
